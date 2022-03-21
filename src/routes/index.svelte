@@ -1,3 +1,5 @@
+<svelte:head><title>ptd.vin</title></svelte:head>
+
 <div class="shadow">
 	<div class="mx-auto w-full max-w-screen-xl px-2 py-5">
 		<h2 class="text-xl font-semibold text-teal-500">ptd.vin</h2>
