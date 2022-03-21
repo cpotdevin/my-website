@@ -1,10 +1,10 @@
+<script>
+	import Header from '$lib/Header.svelte';
+</script>
+
 <svelte:head><title>ptd.vin</title></svelte:head>
 
-<div class="shadow">
-	<div class="mx-auto w-full max-w-screen-xl px-2 py-5">
-		<a class="text-xl font-semibold text-teal-500" href="/">ptd.vin</a>
-	</div>
-</div>
+<Header />
 
 <div class="mx-auto w-full max-w-screen-xl px-2">
 	<div class="my-20 lg:my-36 lg:mx-36">
@@ -14,7 +14,7 @@
 			Christian Potdevin
 		</h1>
 		<p class="mt-2 text-2xl text-gray-600 lg:ml-6">
-			Welcome to my <span class="underline">personal</span> website.
+			Welcome to my <span class="underline">personal</span> website
 		</p>
 	</div>
 </div>
