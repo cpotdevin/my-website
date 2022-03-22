@@ -185,7 +185,7 @@ void main() {
 
 <Header />
 
-<div class="mx-auto w-full max-w-screen-xl px-2">
+<div class="mx-auto w-full max-w-screen-md px-2">
 	<div class="my-10">
 		<h1
 			class="w-fit bg-gradient-to-r from-teal-500 via-violet-500 to-pink-500 bg-clip-text py-1 text-4xl font-bold text-transparent"
@@ -195,5 +195,5 @@ void main() {
 		<h2 class="text-gray-500">2022-03-21</h2>
 	</div>
 
-	<canvas bind:this={canvas} class="mx-auto border" />
+	<canvas bind:this={canvas} class="mx-auto rounded-lg border border-gray-300" />
 </div>
