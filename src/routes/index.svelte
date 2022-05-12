@@ -21,7 +21,13 @@
     </div>
 
     <div class="mt-10 lg:mt-0">
+      <p class="mb-2 text-base text-slate-600">Realtime Sketch Pad</p>
       <RealTimeSketchPad />
+      <p class="mt-2 text-xs text-slate-400">
+        Made with WebSockets in Go (
+        <a class="underline" href="https://github.com/cpotdevin/my-backend">view on GitHub</a>
+        )
+      </p>
     </div>
   </div>
 </div>
