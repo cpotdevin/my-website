@@ -25,9 +25,9 @@
       <p class="mb-2 text-xs text-slate-400">Sketch with anyone in the world</p>
       <RealTimeSketchPad />
       <p class="mt-2 text-xs text-slate-400">
-        Backend made with WebSockets in Go (
-        <a class="underline" href="https://github.com/cpotdevin/my-backend">view on GitHub</a>
-        )
+        Backend made in Go (<a class="underline" href="https://github.com/cpotdevin/my-backend"
+          >view on GitHub</a
+        >)
       </p>
     </div>
   </div>
