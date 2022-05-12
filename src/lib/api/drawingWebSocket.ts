@@ -3,7 +3,7 @@ import type DrawLineMessage from '$lib/interfaces/drawLineMessage';
 let socket: undefined | WebSocket;
 
 const connectToSketchPadWebSocket = (callback: (message: MessageEvent) => void) => {
-  socket = new WebSocket('ws://my-backend.ptd.vin/sketch-pad');
+  socket = new WebSocket('wss://my-backend.ptd.vin/sketch-pad');
 
   socket.onmessage = (message: MessageEvent) => {
     callback(message);
