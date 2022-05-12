@@ -54,7 +54,6 @@
   const messageCallback = (message: any) => {
     const body = JSON.parse(JSON.parse(message.data).body);
     if (body.from && body.to) {
-      console.log(body);
       drawLine(body.from, body.to);
     }
   };
@@ -77,7 +76,7 @@
 <svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth} />
 
 <canvas
-  class="rounded-xl border-2 border-slate-200"
+  class="cursor-crosshair rounded-xl border-2 border-slate-200"
   bind:this={canvas}
   height="300px"
   width="300px"
