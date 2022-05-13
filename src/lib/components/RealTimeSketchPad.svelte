@@ -51,9 +51,11 @@
     handleNewPossiblePoint([e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top]);
   };
 
+  let alreadyConnectedOnce = false;
   let isSocketConnected = false;
 
   const onOpen = () => {
+    alreadyConnectedOnce = true;
     isSocketConnected = true;
   };
 
@@ -128,7 +130,11 @@
         <div class="h-2 w-2 rounded-full bg-red-400" />
       </div>
 
-      Reconnecting...
+      {#if alreadyConnectedOnce}
+        Connection lost, reconnecting...
+      {:else}
+        Connecting...
+      {/if}
     </div>
   {/if}
 </div>
