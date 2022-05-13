@@ -53,6 +53,7 @@
 
   let alreadyConnectedOnce = false;
   let isSocketConnected = false;
+  let userCount = 0;
 
   const onOpen = () => {
     alreadyConnectedOnce = true;
@@ -77,7 +78,10 @@
 
   const onMessage = (message: MessageEvent) => {
     const body = JSON.parse(JSON.parse(message.data).body);
-    if (body.from && body.to) {
+
+    if (typeof body === 'number') {
+      userCount = body;
+    } else if (body.from && body.to) {
       drawLine(body.from, body.to);
     }
   };
@@ -121,7 +125,8 @@
         <div class="h-2 w-2 rounded-full bg-emerald-400" />
       </div>
 
-      Connected
+      Connected with {Math.max(userCount - 1, 0)} other
+      {userCount - 1 === 1 ? 'person' : 'people'}
     </div>
   {:else}
     <div class="flex items-center gap-1 text-sm text-slate-400">
