@@ -24,7 +24,7 @@
       <p class="text-base text-slate-600">Realtime Sketch Pad</p>
       <p class="mb-2 text-xs text-slate-400">Sketch with anyone in the world</p>
       <RealTimeSketchPad />
-      <p class="mt-2 text-xs text-slate-400">
+      <p class="mt-1 text-xs text-slate-400">
         Backend made in Go (<a class="underline" href="https://github.com/cpotdevin/my-backend"
           >view on GitHub</a
         >)

@@ -51,7 +51,29 @@
     handleNewPossiblePoint([e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top]);
   };
 
-  const messageCallback = (message: any) => {
+  let isSocketConnected = false;
+
+  const onOpen = () => {
+    isSocketConnected = true;
+  };
+
+  const onClose = () => {
+    if (isSocketConnected) {
+      isSocketConnected = false;
+      connect();
+    }
+  };
+
+  const connect = () => {
+    setTimeout(() => {
+      if (!isSocketConnected) {
+        connectToSketchPadWebSocket(onOpen, onClose, onMessage);
+        connect();
+      }
+    }, 2000);
+  };
+
+  const onMessage = (message: MessageEvent) => {
     const body = JSON.parse(JSON.parse(message.data).body);
     if (body.from && body.to) {
       drawLine(body.from, body.to);
@@ -62,7 +84,7 @@
     context = canvas.getContext('2d');
     context.lineCap = 'round';
 
-    connectToSketchPadWebSocket(messageCallback);
+    connect();
 
     let interval = setInterval(() => {
       context.fillStyle = 'rgba(255,255,255,0.1)';
@@ -88,3 +110,25 @@
   on:mouseleave={handleEndLine}
   on:touchend={handleEndLine}
 />
+
+<div class="mt-1">
+  {#if isSocketConnected}
+    <div class="flex items-center gap-1 text-sm text-slate-400">
+      <div>
+        <div class="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400" />
+        <div class="h-2 w-2 rounded-full bg-emerald-400" />
+      </div>
+
+      Connected
+    </div>
+  {:else}
+    <div class="flex items-center gap-1 text-sm text-slate-400">
+      <div>
+        <div class="absolute h-2 w-2 animate-ping rounded-full bg-red-400" />
+        <div class="h-2 w-2 rounded-full bg-red-400" />
+      </div>
+
+      Reconnecting...
+    </div>
+  {/if}
+</div>
